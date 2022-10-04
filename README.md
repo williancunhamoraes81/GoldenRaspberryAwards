@@ -29,6 +29,16 @@ git clone https://github.com/williancunhamoraes81/GoldenRaspberryAwards.git
 Essa API utiliza o H2 como banco de dados. Disponível apenas para utilização localhost:9800
 
 
+#### 🚢 Utilizando API
+
+localhost:9800/api/filter { GET }
+localhost:9800/api/list-all { GET }
+localhost:9800/api/{id} { GET }
+localhost:9800/api/{id} { DELETE }
+localhost:9800/api/{id} { PUT }
+localhost:9800/api/{Movie} { POST }
+
+
 #### ⚙️Compilar a aplicação
 
 ```
