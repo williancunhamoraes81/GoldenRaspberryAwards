@@ -81,19 +81,39 @@ public class ProducerService {
 
     private  List<ResultTypeDTO> buildListRasultTypeDTO(Map<String, List<Integer>> mapProducer){
         List<ResultTypeDTO> resultTypeDTO = new ArrayList<>();
+        Integer i = 0;
 
         // Organiza retorno
         mapProducer.entrySet().stream().forEach(m -> {
-            Integer min = Collections.min(m.getValue());
-            Integer max = Collections.max(m.getValue());
-            Integer interval = (max - min);
-            resultTypeDTO.add(ResultTypeDTO
-                    .builder()
-                    .producer(m.getKey())
-                    .previousWin(min.toString())
-                    .followingWin(max.toString())
-                    .interval(interval)
-                    .build());
+            if(m.getValue().size() > 2) {
+
+                for (int n=0; n < (m.getValue().size() - 1); n++){
+                    Integer interval = (m.getValue().get(n+1) - m.getValue().get(n));
+                    resultTypeDTO.add(ResultTypeDTO
+                            .builder()
+                            .producer(m.getKey())
+                            .previousWin(m.getValue().get(n).toString())
+                            .followingWin(m.getValue().get(n+1).toString())
+                            .interval(interval)
+                            .build());
+
+                }
+                return;
+            }else{
+                Integer min = Collections.min(m.getValue());
+                Integer max = Collections.max(m.getValue());
+                Integer interval = (max - min);
+
+                resultTypeDTO.add(ResultTypeDTO
+                        .builder()
+                        .producer(m.getKey())
+                        .previousWin(min.toString())
+                        .followingWin(max.toString())
+                        .interval(interval)
+                        .build());
+
+            }
+
         });
 
         return resultTypeDTO;
