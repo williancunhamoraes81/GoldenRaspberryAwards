@@ -43,8 +43,6 @@ public class DefaultMoviesLoader implements CommandLineRunner {
 
     private void load() throws IOException, CsvException {
 
-       // List<Movie> listMovies = new ArrayList<>();
-
         File file = new File("src/main/resources/csv/movieList.csv");
         CSVParser parser = new CSVParserBuilder().withSeparator(';').build();
         CSVReader csvReader = new CSVReaderBuilder(new FileReader(file.getAbsoluteFile())).withCSVParser(parser).build();
@@ -73,7 +71,7 @@ public class DefaultMoviesLoader implements CommandLineRunner {
         List<Studio> listStudios = new ArrayList<>();
         studios.stream().forEach(m -> {
             if(!m.equals("")){
-                Studio studio = Studio.builder().name(m.trim()).movie(movie).build();
+                Studio studio = Studio.builder().name(m.trim()).build();
                 studioService.create(studio);
                 listStudios.add(studio);
             }

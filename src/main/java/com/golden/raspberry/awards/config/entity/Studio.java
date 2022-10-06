@@ -25,7 +25,5 @@ public class Studio {
     @NotNull(message = "Campo name não pode ser nulo.")
     private String name;
 
-    @ManyToOne
-    private Movie movie;
 
 }

@@ -29,10 +29,10 @@ public class Movie {
     @NotNull(message = "Campo title não pode ser nulo.")
     private String title;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Studio> studios;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Producer> producers;
 
     @NotNull(message = "Campo winner não pode ser nulo.")

@@ -33,11 +33,6 @@ public class MovieService {
         return producerService.filterProducer();
     }
 
-    public List<Movie> getMovies() {
-        final Iterable<Movie> iterable = repository.findAll();
-        return StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
-    }
-
     public Movie getMovieById(Integer id) {
         Optional<Movie> movieOpt = repository.findById(id);
         if(Objects.nonNull(movieOpt)){

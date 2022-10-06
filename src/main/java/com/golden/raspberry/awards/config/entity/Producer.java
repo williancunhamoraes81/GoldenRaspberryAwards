@@ -1,5 +1,6 @@
 package com.golden.raspberry.awards.config.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class Producer {
     private String name;
 
     @ManyToOne
+    @JsonIgnore
     private Movie movie;
 
 }
