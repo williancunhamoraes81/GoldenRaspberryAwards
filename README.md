@@ -1,6 +1,6 @@
 # Golden Raspberry Awards
 
-Serviço responsável pela listagem de indicados e vendedores de pior filme. 
+Serviço responsável pela listagem de indicados e vencedores de pior filme. 
 <br/>
 Nessa aplicação retorno os produtores com maior intervalo entre dois prêmios consecutivos e o que obteve dois prêmios mais rápido através da api abaixo:
 <br/>
